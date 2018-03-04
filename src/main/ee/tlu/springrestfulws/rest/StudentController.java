@@ -45,7 +45,7 @@ public class StudentController {
 	@RequestMapping(value = "/{studentId}", method = RequestMethod.PUT)
 	public ResponseEntity<Student> updateStudent(@PathVariable(value = "schoolId") Long schoolId,
 			@PathVariable(value = "studentId") Long studentId, @RequestBody Student student) {
-		Student updated = studentService.update(schoolId, student);
+		Student updated = studentService.update(schoolId, studentId, student);
 		return new ResponseEntity<Student>(updated, HttpStatus.OK);
 	}
 
