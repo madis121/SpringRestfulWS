@@ -31,7 +31,7 @@ public class SchoolService {
 		return new ArrayList<>(schools.values());
 	}
 
-	public School getById(Long id) {
+	public School findById(Long id) {
 		return schools.get(id);
 	}
 

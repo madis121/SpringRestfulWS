@@ -31,7 +31,7 @@ public class StudentController {
 	@RequestMapping(value = "/{studentId}", method = RequestMethod.GET)
 	public ResponseEntity<Student> getStudent(@PathVariable(value = "schoolId") Long schoolId,
 			@PathVariable(value = "studentId") Long studentId) {
-		Student existing = studentService.getById(schoolId, studentId);
+		Student existing = studentService.findById(schoolId, studentId);
 		return new ResponseEntity<Student>(existing, HttpStatus.OK);
 	}
 

@@ -17,7 +17,7 @@ public class StudentService {
 	private SchoolService schoolService;
 
 	public List<Student> all(Long schoolId) {
-		School school = schoolService.getById(schoolId);
+		School school = schoolService.findById(schoolId);
 		if (school == null) {
 			throw new ResourceNotFoundException("School with the id of " + schoolId + " was not found");
 		}
@@ -25,8 +25,8 @@ public class StudentService {
 		return new ArrayList<>(school.getStudents().values());
 	}
 
-	public Student getById(Long schoolId, Long studentId) {
-		School school = schoolService.getById(schoolId);
+	public Student findById(Long schoolId, Long studentId) {
+		School school = schoolService.findById(schoolId);
 		if (school == null) {
 			throw new ResourceNotFoundException("School with the id of " + schoolId + " was not found");
 		}
@@ -35,7 +35,7 @@ public class StudentService {
 	}
 
 	public void save(Long schoolId, Student student) {
-		School school = schoolService.getById(schoolId);
+		School school = schoolService.findById(schoolId);
 		if (school == null) {
 			throw new ResourceNotFoundException("School with the id of " + schoolId + " does not exist");
 		}
@@ -46,7 +46,7 @@ public class StudentService {
 	}
 
 	public Student update(Long schoolId, Student student) {
-		School school = schoolService.getById(schoolId);
+		School school = schoolService.findById(schoolId);
 		if (school == null) {
 			throw new ResourceNotFoundException("School with the id of " + schoolId + " does not exist");
 		}
@@ -63,7 +63,7 @@ public class StudentService {
 	}
 
 	public void delete(Long schoolId, Long studentId) {
-		School school = schoolService.getById(schoolId);
+		School school = schoolService.findById(schoolId);
 		if (school == null) {
 			throw new ResourceNotFoundException("School with the id of " + schoolId + " does not exist");
 		}

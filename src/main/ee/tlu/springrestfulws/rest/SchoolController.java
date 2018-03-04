@@ -29,7 +29,7 @@ public class SchoolController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<School> getSchool(@PathVariable(value = "id") Long id) {
-		School school = schoolService.getById(id);
+		School school = schoolService.findById(id);
 		return new ResponseEntity<School>(school, HttpStatus.OK);
 	}
 
